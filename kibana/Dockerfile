@@ -1,6 +1,6 @@
-FROM docker.elastic.co/kibana/kibana:6.2.2
+FROM docker.elastic.co/kibana/kibana:7.7.0
 
-LABEL maintainer="genius840215@163.com"
+LABEL maintainer="ermu0420@gmail.com"
 
 COPY ./config/kibana.yml /usr/share/kibana/config/kibana.yml
 

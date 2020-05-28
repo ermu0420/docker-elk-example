@@ -1,5 +1,4 @@
 version: '2'
-
 services:
 
   elasticsearch:
@@ -54,27 +53,6 @@ services:
         ipv4_address: 172.25.0.4
     depends_on:
       - elasticsearch
-    restart: always
-
-  metricbeat:
-    build:
-      context: metricbeat/
-    container_name: metricbeat
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /proc:/hostfs/proc:ro
-      - /sys/fs/cgroup:/hostfs/sys/fs/cgroup:ro
-      - /:/hostfs:ro
-      - ./metricbeat/metricbeat.yml:/usr/share/metricbeat/metricbeat.yml:ro
-      - ./metricbeat/modules.d:/usr/share/metricbeat/modules.d:ro
-      -  /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime:ro
-    user: "root"
-    network_mode: host
-    depends_on:
-      - elasticsearch
-      - kibana
-      - logstash
-    command: -system.hostfs=/hostfs -e
     restart: always
   
   nginx:

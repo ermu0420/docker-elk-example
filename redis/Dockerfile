@@ -1,4 +1,4 @@
 FROM redis:alpine
 
-LABEL maintainer="genius840215@163.com"
+LABEL maintainer="ermu0420@gmail.com"
 
